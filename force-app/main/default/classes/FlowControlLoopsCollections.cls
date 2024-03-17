@@ -483,17 +483,20 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static Integer getSalary(String employeeName) {
         // Initialize a Map
+        Map<String,Integer> employeeSalary = new Map<String,Integer>();
 
-        // Add key-value pairs to the Map
-        // add John Doe => 50000
-        // add Jane Smith => 60000
-        // add Sam Brown => 55000
-        // add Alice Johnson => 65000
-
+        employeeSalary.put('John Doe', 50000);
+        employeeSalary.put('Jane Smith', 60000);
+        employeeSalary.put('Sam Brown', 55000);
+        employeeSalary.put('Alice Johnson', 65000);
+        
         // Get the salary of the employee
+        Integer salary = employeeSalary.get(employeeName);
 
         // Return the salary of the employee, or null if the employee is not found in the Map
-        return null; // Replace null with the variable you used to store the result
+        System.debug(salary);
+        return salary;
+
     }
 
     /**
@@ -510,20 +513,31 @@ public with sharing class FlowControlLoopsCollections {
         // Initialize a Map
         Map<String, Integer> employeeSalaries = new Map<String, Integer>();
 
-        // Add key-value pairs to the Map
-        // add John Doe => 50000
-        // add Jane Smith => 60000
-        // add Sam Brown => 55000
-        // add Alice Johnson => 65000
+        employeeSalaries.put('John Doe', 50000);
+        employeeSalaries.put('Jane Smith', 60000);
+        employeeSalaries.put('Sam Brown', 55000);
+        employeeSalaries.put('Alice Johnson', 65000);
+    
 
         // Initialize a list to store the names of high paid employees
+        List<String> employees = new List<String>();  
 
         // Iterate over the Map using a for loop
             // Check if the salary of the employee is more than 55000
                 // Add the employee to the list of high paid employees
+            for (String eName : employeeSalaries.keySet()) {
+                
+                if (employeeSalaries.get(eName) > 55000 ){
+                   
+                    employees.add(eName);
+
+                }
+
+            }
 
         // Return the list of high paid employees
-        return null; // Replace null with the variable you used to store the result
+        System.debug(employees);
+        return employees;
     }
 
 }
